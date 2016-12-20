@@ -5,6 +5,7 @@
  */
 package com.firma.springproject;
 
+import com.firma.soba.SobaInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -19,10 +20,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class SobaController {
 
+    @Autowired
+    private SobaInterface sobaImplements;
+
     @RequestMapping(value = "/soba", method
             = RequestMethod.GET)
-    public String student(ModelMap map) {
+    public String soba(ModelMap map) {
         map.addAttribute("soba", new Soba());
+        sobaImplements.addSoba();
+        return "unosSobe";
+    }
+
+    @RequestMapping(value = "/exceptionSoba", method = RequestMethod.GET)
+    public String sobaException(ModelMap map) throws Exception {
+        map.addAttribute("soba", new Soba());
+        sobaImplements.throwException();
         return "unosSobe";
     }
 
@@ -36,6 +48,8 @@ public class SobaController {
         model.addAttribute("size", soba.getSize());
         model.addAttribute("bathroom", soba.getBathroom());
         model.addAttribute("price", soba.getPricePerDay());
+        sobaImplements.addSoba();
         return "prikazSobe";
     }
+
 }

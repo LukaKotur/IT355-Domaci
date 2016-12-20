@@ -1,3 +1,6 @@
 com\firma\springproject\Soba.class
 com\firma\springproject\HomeController.class
+com\firma\soba\SobaInterface.class
+com\firma\soba\SobaImplements.class
+com\firma\springproject\InterceptorLog.class
 com\firma\springproject\SobaController.class

@@ -34,7 +34,7 @@
                         <ul class="nav navbar-nav">
                             <li><a href="<l:url value="/"/>">Home</a></li>
                             <li><a href="<l:url value="/soba"/>">Dodaj Sobu</a></li>
-
+                            <li><a href="<l:url value="/exceptionSoba"/>">Throw Exception</a></li>                 
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
