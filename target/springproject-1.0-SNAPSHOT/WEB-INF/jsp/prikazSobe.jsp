@@ -6,6 +6,7 @@
 
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@page session="true"%>
 <%@ include file="header.jsp" %>
 
         <h2>Podaci o unetoj sobi</h2>

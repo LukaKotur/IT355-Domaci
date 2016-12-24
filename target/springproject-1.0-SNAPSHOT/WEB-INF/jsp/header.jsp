@@ -5,7 +5,18 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="l"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page session="true"%>
+<c:url value="/j_spring_security_logout" var="logoutUrl" />
+<form action="${logoutUrl}" method="post" id="logoutForm">
+    <input type="hidden" name="${_csrf.parameterName}"
+           value="${_csrf.token}" />
+</form>
+<script>
+    function formSubmit() {
+        document.getElementById("logoutForm").submit();
+    }
+</script>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,15 +37,24 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="<l:url value="/"/>">Spring Bootstrap Domaci</a>
+                        <a class="navbar-brand" href="<c:url value="/"/>">IT355-Domaci</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="<l:url value="/"/>">Home</a></li>
-                            <li><a href="<l:url value="/soba"/>">Dodaj Sobu</a></li>
-                            <li><a href="<l:url value="/exceptionSoba"/>">Throw Exception</a></li>                 
+                            <li><a href="<c:url value="/"/>">Home</a></li>
+                            <li><a href="<c:url value="/soba"/>">Dodaj Sobu</a></li>
+                            <li><a href="<c:url value="/exceptionSoba"/>">Throw Exception</a></li>  
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                <li><a href="#">Hello ${pageContext.request.userPrincipal.name}</a></li>  
+                                <li><a href="javascript:formSubmit()"> Logout</a></li>
+                                </c:if>
+                                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                                <li><a href="<c:url value="/login"/>">Login</a></li>  
+                                </c:if>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
