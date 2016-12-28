@@ -10,6 +10,7 @@ package com.firma.springproject.soba;
  * @author Luka
  */
 public class Soba {
+
     private int sobaId;
     private int numberOfBeds;
     private double size;
@@ -22,6 +23,24 @@ public class Soba {
     }
 
     public Soba(int numberOfBeds, double size, String bathroom, String ac, String tv, double pricePerDay) {
+        this.numberOfBeds = numberOfBeds;
+        this.size = size;
+        this.bathroom = bathroom;
+        this.ac = ac;
+        this.tv = tv;
+        this.pricePerDay = pricePerDay;
+    }
+
+    public int getSobaId() {
+        return sobaId;
+    }
+
+    public void setSobaId(int sobaId) {
+        this.sobaId = sobaId;
+    }
+
+    public Soba(int sobaId, int numberOfBeds, double size, String bathroom, String ac, String tv, double pricePerDay) {
+        this.sobaId = sobaId;
         this.numberOfBeds = numberOfBeds;
         this.size = size;
         this.bathroom = bathroom;
@@ -78,5 +97,4 @@ public class Soba {
         this.pricePerDay = pricePerDay;
     }
 
-    
 }
