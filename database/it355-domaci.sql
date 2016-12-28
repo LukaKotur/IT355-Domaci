@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2016 at 07:23 PM
+-- Generation Time: Dec 28, 2016 at 08:14 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 5.6.19
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `it355-domaci`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sobe`
+--
+
+CREATE TABLE `sobe` (
+  `id` int(10) NOT NULL,
+  `number_of_beds` int(10) NOT NULL,
+  `ac` varchar(2) NOT NULL,
+  `tv` varchar(2) NOT NULL,
+  `bathroom` varchar(2) NOT NULL,
+  `size` double NOT NULL,
+  `price` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sobe`
+--
+
+INSERT INTO `sobe` (`id`, `number_of_beds`, `ac`, `tv`, `bathroom`, `size`, `price`) VALUES
+(26, 3, 'da', 'da', 'da', 25, 15),
+(27, 2, 'da', 'ne', 'ne', 15, 34),
+(28, 2, 'da', 'da', 'da', 24, 13);
 
 -- --------------------------------------------------------
 
@@ -65,6 +90,12 @@ INSERT INTO `user_roles` (`user_role_id`, `username`, `role`) VALUES
 --
 
 --
+-- Indexes for table `sobe`
+--
+ALTER TABLE `sobe`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -82,6 +113,11 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `sobe`
+--
+ALTER TABLE `sobe`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `user_roles`
 --
